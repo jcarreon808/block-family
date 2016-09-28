@@ -1,38 +1,81 @@
-// Resets, Clearfix, etc
+ @import 'partials/clearfix';
+ @import 'partials/reset';
+
 
 // Variables
- 
-// Media Query Ranges 
- 
+$dark-color : #333333;
+$light-color: #F1F1F1;
+$bright-color: yellow;
+$padding : 20px;
+
+// Media Query Ranges
+@media screen and (min-width: 600px) {
+    body {
+        background-color: lightgreen;
+        .block_family li{
+          max-width:150px;
+          margin:auto;
+          background-color: orange;
+          margin-bottom: 20px;
+          padding: 20px;
+          h2{
+            color:pink;
+            font-size:30px;
+          }
+        }
+    }
+}
+@media screen and (min-width: 900px) {
+    body {
+        background-color: lightblue;
+        .block_family li{
+          max-width:250px;
+          margin:auto;
+          background-color: purple;
+          margin-bottom: 20px;
+          padding: 20px;
+          h2{
+            color:green;
+            font-size:50px;
+          }
+        }
+
+    }
+}
 // Mixins
+@mixin block_font($block_font_size, $block_font_color){
+  font-size: $block_font_size;
+  color: $block_font_color;
+}
 
 // Styles
 body{
-  background-color: orange;
+
   text-align: center;
   color: #EEE;
 }
- 
+
 h1, h2, h3, h4{
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
 }
- 
+
 h1{
+  @include block_font(50px,$bright-color);
   padding: 20px;
 }
- 
+
 h2{
- 
+@include block_font(25px, $dark-color);
 }
- 
- 
+
+
 .block_family{
   max-width:350px;
   margin:auto;
 }
- 
+
 .block_family li{
-  background-color: #222;
+  background-color: $bright-color;
   margin-bottom: 20px;
   padding: 20px;
 }
